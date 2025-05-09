@@ -6,6 +6,7 @@ class ThemeManager {
   static const Color whiteColor = Color(0xffFFFFFF);
   static const Color blackColor = Color(0xff000000);
   static const Color transparent = Colors.transparent;
+  static const Color elevatedButtonBGColor = Color(0xffCFD3E3);
 
   static final TextTheme textTheme = TextTheme(
     titleLarge: GoogleFonts.poppins(
