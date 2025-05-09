@@ -6,6 +6,7 @@ import 'package:gs_test/services/auth_service.dart';
 import 'package:gs_test/utils/theme_manager.dart';
 import 'package:gs_test/views/login_screen/login_screen.dart';
 import 'package:gs_test/views/login_screen/provider/login_provider.dart';
+import 'package:gs_test/views/register/provider/register_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -20,6 +21,10 @@ void main() async {
         ChangeNotifierProxyProvider<AuthService, LoginProvider>(
           create: (context) => LoginProvider(context.read<AuthService>()),
           update: (context, auth, previous) => LoginProvider(auth),
+        ),
+        ChangeNotifierProxyProvider<AuthService, RegisterProvider>(
+          create: (context) => RegisterProvider(context.read<AuthService>()),
+          update: (context, auth, previous) => RegisterProvider(auth),
         ),
       ],
       child: const MainApp(),

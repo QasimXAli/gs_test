@@ -82,10 +82,7 @@ class LoginScreen extends StatelessWidget {
               10.ph,
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => RegisterScreen()));
+                  context.push(RegisterScreen());
                 },
                 child: Text(
                   'Sign up',
