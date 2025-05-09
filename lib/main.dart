@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:gs_test/firebase_options.dart';
 import 'package:gs_test/services/auth_service.dart';
 import 'package:gs_test/utils/theme_manager.dart';
+import 'package:gs_test/views/home/home_screen.dart';
+import 'package:gs_test/views/home/provider/home_provider.dart';
 import 'package:gs_test/views/login_screen/login_screen.dart';
 import 'package:gs_test/views/login_screen/provider/login_provider.dart';
 import 'package:gs_test/views/register/provider/register_provider.dart';
@@ -25,6 +27,9 @@ void main() async {
         ChangeNotifierProxyProvider<AuthService, RegisterProvider>(
           create: (context) => RegisterProvider(context.read<AuthService>()),
           update: (context, auth, previous) => RegisterProvider(auth),
+        ),
+        ChangeNotifierProvider<HomeProvider>(
+          create: (_) => HomeProvider(),
         ),
       ],
       child: const MainApp(),
@@ -56,7 +61,7 @@ class AuthWrapper extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
         } else if (snapshot.hasData) {
-          return const Placeholder();
+          return const HomeScreen();
         } else {
           return const LoginScreen();
         }

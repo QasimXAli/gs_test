@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:gs_test/services/auth_service.dart';
 import 'package:gs_test/utils/extensions.dart';
 import 'package:gs_test/utils/toast_message.dart';
+import 'package:gs_test/views/home/home_screen.dart';
 import 'package:image_picker/image_picker.dart';
 
 class RegisterProvider extends ChangeNotifier {
@@ -55,7 +56,7 @@ class RegisterProvider extends ChangeNotifier {
       );
       ToastMessage.show(msg: 'Registration successful');
       if (context.mounted) {
-        context.pushReplacement(const Placeholder());
+        context.pushReplacement(const HomeScreen());
       }
     } on FirebaseAuthException catch (e) {
       ToastMessage.show(msg: e.message ?? "Authentication failed");

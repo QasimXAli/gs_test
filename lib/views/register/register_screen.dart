@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gs_test/services/auth_service.dart';
 import 'package:gs_test/utils/extensions.dart';
 import 'package:gs_test/utils/theme_manager.dart';
 import 'package:gs_test/utils/validators.dart';
@@ -36,7 +37,7 @@ class RegisterScreen extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         radius: 40,
-                        backgroundColor: const Color(0xff7883B4),
+                        backgroundColor: ThemeManager.avatarBGColor,
                         backgroundImage: provider.selectedImage != null
                             ? FileImage(provider.selectedImage!)
                             : null,

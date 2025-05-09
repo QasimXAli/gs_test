@@ -7,6 +7,7 @@ class ThemeManager {
   static const Color blackColor = Color(0xff000000);
   static const Color transparent = Colors.transparent;
   static const Color elevatedButtonBGColor = Color(0xffCFD3E3);
+  static const Color avatarBGColor = Color(0xff7883B4);
 
   static final TextTheme textTheme = TextTheme(
     titleLarge: GoogleFonts.poppins(
@@ -32,7 +33,7 @@ class ThemeManager {
     scaffoldBackgroundColor: scaffoldColor,
     textTheme: textTheme,
     appBarTheme: const AppBarTheme(
-      backgroundColor: whiteColor,
+      backgroundColor: scaffoldColor,
       elevation: 0,
     ),
     brightness: Brightness.light,
