@@ -28,7 +28,7 @@ class ForgotPasswordProvider extends ChangeNotifier {
       );
       if (context.mounted) {
         emailController.clear();
-        context.pushAndRemoveUntil(LoginScreen());
+        context.pop();
       }
       ToastMessage.show(msg: 'Reset email sent');
     } catch (e) {
