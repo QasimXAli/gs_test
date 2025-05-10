@@ -56,7 +56,7 @@ class RegisterProvider extends ChangeNotifier {
       );
       ToastMessage.show(msg: 'Registration successful');
       if (context.mounted) {
-        context.pushReplacement(const HomeScreen());
+        context.pushAndRemoveUntil(const HomeScreen());
       }
     } on FirebaseAuthException catch (e) {
       ToastMessage.show(msg: e.message ?? "Authentication failed");
