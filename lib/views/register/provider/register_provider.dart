@@ -56,6 +56,7 @@ class RegisterProvider extends ChangeNotifier {
       );
       ToastMessage.show(msg: 'Registration successful');
       if (context.mounted) {
+        reset();
         //Thoughts:  Clasic navigation stack issue because the wrapper is on login screen i have to pop here inorder to navigate to home.
         context.pop();
       }
@@ -66,5 +67,15 @@ class RegisterProvider extends ChangeNotifier {
     } finally {
       toggleLoading();
     }
+  }
+
+  void reset() {
+    //Thoughts: As the provider is registered as global instead of being tied to the screen it stays in the widget tree
+    //I have to manually clear the values of controllers.
+    //Its been a while since i used provider.
+    emailController.clear();
+    passwordController.clear();
+    nameController.clear();
+    selectedImage = null;
   }
 }
