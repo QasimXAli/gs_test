@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gs_test/services/auth_service.dart';
 import 'package:gs_test/utils/extensions.dart';
 import 'package:gs_test/utils/theme_manager.dart';
 import 'package:gs_test/utils/validators.dart';
@@ -103,9 +102,12 @@ class RegisterScreen extends StatelessWidget {
               Consumer<RegisterProvider>(
                 builder: (_, provider, __) => SizedBox(
                   height: 50,
-                  width: 100,
+                  width: double.infinity,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
                         backgroundColor: ThemeManager.elevatedButtonBGColor),
                     onPressed: provider.loadingState
                         ? null

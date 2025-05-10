@@ -42,6 +42,10 @@ class AuthService {
     });
   }
 
+  Future<void> sendPasswordResetEmail(String email) {
+    return _auth.sendPasswordResetEmail(email: email);
+  }
+
   Future<void> logout() {
     return _auth.signOut();
   }

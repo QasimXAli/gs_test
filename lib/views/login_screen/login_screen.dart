@@ -3,6 +3,7 @@ import 'package:gs_test/utils/extensions.dart';
 import 'package:gs_test/utils/theme_manager.dart';
 import 'package:gs_test/utils/validators.dart';
 import 'package:gs_test/views/common/custom_form_field.dart';
+import 'package:gs_test/views/forgot_password/forgot_password.dart';
 import 'package:gs_test/views/login_screen/provider/login_provider.dart';
 import 'package:gs_test/views/register/register_screen.dart';
 import 'package:provider/provider.dart';
@@ -52,18 +53,26 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               30.ph,
-              Text(
-                'Forget Password ?',
-                style: ThemeManager.textTheme.titleMedium
-                    ?.copyWith(fontWeight: FontWeight.bold),
+              GestureDetector(
+                onTap: () {
+                  context.push(ForgotPassword());
+                },
+                child: Text(
+                  'Forget Password ?',
+                  style: ThemeManager.textTheme.titleMedium
+                      ?.copyWith(fontWeight: FontWeight.bold),
+                ),
               ),
               30.ph,
               Consumer<LoginProvider>(
                 builder: (_, provider, __) => SizedBox(
                   height: 50,
-                  width: 100,
+                  width: double.infinity,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
                         backgroundColor: ThemeManager.elevatedButtonBGColor),
                     onPressed:
                         provider.loadingState ? null : () => provider.login(),

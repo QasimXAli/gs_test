@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gs_test/firebase_options.dart';
 import 'package:gs_test/services/auth_service.dart';
 import 'package:gs_test/utils/theme_manager.dart';
+import 'package:gs_test/views/forgot_password/provider/forgot_password_provider.dart';
 import 'package:gs_test/views/home/home_screen.dart';
 import 'package:gs_test/views/home/provider/home_provider.dart';
 import 'package:gs_test/views/login_screen/login_screen.dart';
@@ -30,6 +31,11 @@ void main() async {
         ),
         ChangeNotifierProvider<HomeProvider>(
           create: (_) => HomeProvider(),
+        ),
+        ChangeNotifierProxyProvider<AuthService, ForgotPasswordProvider>(
+          create: (context) =>
+              ForgotPasswordProvider(context.read<AuthService>()),
+          update: (context, auth, previous) => ForgotPasswordProvider(auth),
         ),
       ],
       child: const MainApp(),
