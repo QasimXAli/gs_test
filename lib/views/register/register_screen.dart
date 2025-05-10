@@ -127,7 +127,7 @@ class RegisterScreen extends StatelessWidget {
               10.ph,
               GestureDetector(
                 onTap: () {
-                  context.pushAndRemoveUntil(LoginScreen());
+                  context.pop();
                 },
                 child: Text(
                   'Login',
