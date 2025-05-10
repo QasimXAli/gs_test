@@ -56,7 +56,8 @@ class RegisterProvider extends ChangeNotifier {
       );
       ToastMessage.show(msg: 'Registration successful');
       if (context.mounted) {
-        context.pushAndRemoveUntil(const HomeScreen());
+        //Thoughts:  Clasic navigation stack issue because the wrapper is on login screen i have to pop here inorder to navigate to home.
+        context.pop();
       }
     } on FirebaseAuthException catch (e) {
       ToastMessage.show(msg: e.message ?? "Authentication failed");

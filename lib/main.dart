@@ -64,13 +64,10 @@ class AuthWrapper extends StatelessWidget {
     return StreamBuilder<User?>(
       stream: authService.authStateChanges,
       builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
-        } else if (snapshot.hasData) {
+        if (snapshot.hasData) {
           return const HomeScreen();
-        } else {
-          return const LoginScreen();
         }
+        return const LoginScreen();
       },
     );
   }

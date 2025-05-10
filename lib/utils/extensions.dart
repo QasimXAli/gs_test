@@ -5,8 +5,7 @@ extension PaddingHeight on num {
   SizedBox get pw => SizedBox(width: toDouble());
 }
 
-
-//Thoughts: I could have opted for GoRouter or other routing packages but for this project 
+//Thoughts: I could have opted for GoRouter or other routing packages but for this project
 //I think the default Navigator is good enough
 extension NavContext on BuildContext {
   void push(Widget page) {
@@ -20,5 +19,9 @@ extension NavContext on BuildContext {
   void pushAndRemoveUntil(Widget page) {
     Navigator.pushAndRemoveUntil(
         this, MaterialPageRoute(builder: (_) => page), (route) => false);
+  }
+
+  void pop() {
+    Navigator.pop(this);
   }
 }
