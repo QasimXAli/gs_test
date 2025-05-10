@@ -31,6 +31,8 @@ class LoginProvider extends ChangeNotifier {
     try {
       toggleLoading();
       await _authService.login(emailController.text, passwordController.text);
+      //Thoughts: As the provider is global reseting it after login.
+      reset();
     } on FirebaseAuthException catch (e) {
       ToastMessage.show(msg: e.message ?? "Authentication failed");
     } catch (e) {
@@ -38,5 +40,10 @@ class LoginProvider extends ChangeNotifier {
     } finally {
       toggleLoading();
     }
+  }
+
+  reset() {
+    emailController.clear();
+    passwordController.clear();
   }
 }
